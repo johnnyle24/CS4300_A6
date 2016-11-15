@@ -24,10 +24,10 @@ x0,y0,vx0,vy0,max_time,del_t,theta)
 %
 
 %Initialize matrices
-A = [1,0,del_t,0;0,1,0,del_t;0,0,1,0;0,0,0,1];
+A = [1,0,del_t,0;0,1,0,del_t;;0,0,1,0;0,0,0,1];
 B = [(del_t * del_t) / 2, 0; 0, (del_t * del_t) / 2; del_t, 0; 0, del_t];
 u = [0;0];
-R = [0.001,0,0,0;0,0.001,0,0;0,0,0.001,0;0,0,0,0.001];
+R = zeros(4,4);
 C = [1,0,0,0;0,1,0,0];
 Q = [0,0;0,0];
 
@@ -53,17 +53,11 @@ num_steps = length(t_vals);
 for s = 1:num_steps
    xa = CS4300_Process(xa,A,B,U,R);
    at = [at;xa'];
-   z = CS4300_Sensor(c,xa,Q);
+   z = CS4300_fall_sensor(c,xa,Q);
    zt = [zt:z'];
-   [x,sigma] = CS4300_KF(xt(end), st(end), sigma,u,zt,A,R,B,C,Q);
-   xt = [xt;x'];
-   st(end+1).sigma2 = sigma;
+   [x,sigma] = CS4300_KF(xt(end), st(end), sigma,u,zt,A,R,  
 end
 
-x_trace = xt;
-Sigma2_trace = st;
-z_trace = zt;
-a_trace = at;
 
 
 

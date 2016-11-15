@@ -1,4 +1,4 @@
-function [xt,at,zt,St] = CS4300_driver_proj(dt,t_max,obs_freq,g,r,q)
+function [xt,at,zt,St] = CS4300_driver_proj(del_t,t_max,obs_freq,g,r,q)
 % CS4300_driver_proj - driver for Kalman Filter projectile tracking
 % This script demonstrates the use of the kalman filter in projectile
 % tracking.
@@ -38,3 +38,39 @@ function [xt,at,zt,St] = CS4300_driver_proj(dt,t_max,obs_freq,g,r,q)
 %     UU
 %     Fall 2016
 %
+
+A = [1,0,del_t,0;0,1,0,del_t;0,0,1,0;0,0,0,1];
+B = [(del_t * del_t) / 2, 0; 0, (del_t * del_t) / 2; del_t, 0; 0, del_t];
+u = [0;g];
+R = zeros(4,4);
+C = [1,0,0,0;0,1,0,0];
+Q = [0,0;0,0];
+
+%x actual
+xa = [x0;y0;vx0;vy0];
+at = xa';
+
+%z actual
+z = CS4300_fall(c,xa,Q);
+zt = z';
+
+%x trace
+x = [z(1);z(2);0;0];
+xt = x';
+
+%sigma trace
+sigma = R;
+St(1).sigma2 = sigma;
+
+t_vals = [dt:dt:t_max];
+num_steps = length(t_vals);
+
+for s = 1:num_steps
+   xa = CS4300_Process(xa,A,B,U,R);
+   at = [at;xa'];
+   z = CS4300_fall_sensor(c,xa,Q);
+   zt = [zt:z'];
+   [x,sigma] = CS4300_KF(xt(end), st(end), sigma,u,zt,A,R,B,C,Q);
+   xt = [xt;x'];
+   St(end+1).sigma2 = sigma;
+end

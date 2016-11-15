@@ -1,5 +1,4 @@
-function [mu_t,Sigma_t] = CS4300_KF(mu_tm1,Sigma_tm1,u_t,z_t,A_t,R_t,...
-B_t,C_t,Q_t)
+function x = CS4300_Process(xa,A,B,U,R)
 % CS4300_KF - one step in Kalman Filter
 % On input:
 %     mu_tm1 (nx1 vector): previous state estimate vector
@@ -14,22 +13,12 @@ B_t,C_t,Q_t)
 %     mu_t (nx1 vector): next state estimate
 %     Sigma_t (nxn matrix): state covariance matrix
 % Call:
-%     [x,Sigma2] = CS4300_KF(x,Sigma2,u,z,A,B,R,C,Q);
+%     xa = CS4300_Process(xa,A,B,U,R);
 % Author:
 %     Johnny Le and Trung Le
 %     UU
 %     Fall 2016
 %
 
-mu_t = A_t * mu_tm1 + B_t * u_t;
-Sigma_t = A_t * Sigma_tm1 * A_t' + R_t;
-
-K_t = Sigma_t * C_t' * (C_t * Sigma_t * C_T' + Q_t).^-1;
-mu_t = mu_t + K_t * (z_t - C_t*mu_t);
-n = size(C_T);
-I = eye(n);
-Sigma_t = (I-K_t * C_t) * Sigma_t;
-
-
-
+x = A * xa + B * U + R;
 
