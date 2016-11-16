@@ -13,5 +13,5 @@ function z = CS4300_Sensor(c,x,q)
 %     UU
 %     Fall 2016
 %
-
-z = c * x + sqrt(q) * randn(2,1);
+r = randn(2,1);
+z = c * x + sqrt(q) * r;

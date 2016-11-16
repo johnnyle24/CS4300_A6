@@ -17,8 +17,8 @@ function p = CS4300_A6_Driver()
 %Linear motion
 x0 = 0;
 y0 = 0;
-vx0 = 2;
-vy0 = 2;
+vx0 = 4;
+vy0 = 4;
 theta = pi/8;
 del_t = 0.05;
 max_time = 20;
@@ -36,9 +36,9 @@ zyval = z_trace(:,2);
 xval = x_trace(:,1);
 yval = x_trace(:,2);
 
-plot(xval,yval, 'x');
+plot(xval,yval);
 plot(zxval,zyval,'o');
-plot(axval,ayval,'*');
+plot(axval,ayval);
 
 
 %Projectile motion

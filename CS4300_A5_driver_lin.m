@@ -29,7 +29,7 @@ B = [(del_t * del_t) / 2, 0; 0, (del_t * del_t) / 2; del_t, 0; 0, del_t];
 u = [0;0];
 R = [0.001,0,0,0;0,0.001,0,0;0,0,0.001,0;0,0,0,0.001];
 C = [1,0,0,0;0,1,0,0];
-Q = [0,0;0,0];
+Q = [1,0;0,1];
 
 %x actual
 xa = [x0;y0;vx0;vy0];
@@ -51,8 +51,16 @@ t_vals = [del_t:del_t:max_time];
 num_steps = length(t_vals);
 
 for s = 1:num_steps
-   xa = CS4300_Process(xa,A,B,u,R);
+   x = CS4300_Process(xa,A,B,u,R);
+   
+   x_noise = [sqrt(R(1,1)) *randn; sqrt(R(2,2))*randn; sqrt(R(3,3))*randn; sqrt(R(4,4))*randn];
+   
+   xa = x + x_noise;
+   
+%    xat(s+1,:) = xa';
+   
    at = [at;xa'];
+   
    z = CS4300_Sensor(C,xa,Q);
    zt = [zt;z'];
    [x,sigma] = CS4300_KF(xa, st(end).sigma2,u,z,A,R,B,C,Q);
