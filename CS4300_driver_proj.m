@@ -47,7 +47,8 @@ C = [1,0,0,0;0,1,0,0];
 Q = eye(2,2) * q;
 
 %x actual
-xa = [0;0;200;200];
+xa = [0;0;100;100];
+x_ideal = xa;
 at = xa';
 
 %z actual
@@ -62,7 +63,7 @@ xt = x';
 sigma = R;
 st(1).sigma2 = sigma;
 
-t_vals = [del_t:del_t:t_max];
+t_vals = [0:del_t:t_max];
 num_steps = length(t_vals);
 
 % for s = 1:num_steps
@@ -80,18 +81,18 @@ for s = 1:num_steps
    if(xa(2) < 0)
       break; 
    end
-   x = CS4300_Process(xa,A,B,u,R);
+   x_ideal = CS4300_Process(x_ideal,A,B,u,R);
    
    x_noise = [sqrt(R(1,1)) *randn; sqrt(R(2,2))*randn; sqrt(R(3,3))*randn; sqrt(R(4,4))*randn];
    
-   xa = x + x_noise;
+   xa = x_ideal + x_noise;
   
    z = CS4300_Sensor(C,xa,Q);
 
    [x,sigma] = CS4300_KF(xa, st(end).sigma2,u,z,A,R,B,C,Q);
    
    
-    if(mod(s,0.35) == 0) 
+   if(mod(s,obs_freq) == 0) 
         at = [at;xa'];
         xt = [xt;x'];
         st(end+1).sigma2 = sigma;

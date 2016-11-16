@@ -53,8 +53,12 @@ Q = eye(2) * 0.5;
 t_vals = [del_t:del_t:max_time];
 num_steps = length(t_vals);
 
+x_ideal = [0,0,0,0];
+
 for s = 1:num_steps
    x = CS4300_Process(xa,A,B,u,R);
+   
+   x_ideal = x;
    
    x_noise = [sqrt(R(1,1)) *randn; sqrt(R(2,2))*randn; sqrt(R(3,3))*randn; sqrt(R(4,4))*randn];
    
