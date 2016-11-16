@@ -25,10 +25,10 @@ max_time = 20;
 t_max = 70;
 g = -9.8;
 r = 2;
-q = 10;
+q = 20;
 obs_freq = 0.35;
 
-%[xt,at,zt,Sigma2_trace] = CS4300_A5_driver_lin(x0,y0,vx0,vy0,max_time,del_t,theta);
+[x_trace,a_trace,z_trace,Sigma2_trace] = CS4300_A5_driver_lin(x0,y0,vx0,vy0,max_time,del_t,theta);
 
 %Projectile motion
 [xt,at,zt,St] = CS4300_driver_proj(del_t,t_max,obs_freq,g,r,q);
