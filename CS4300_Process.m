@@ -20,5 +20,5 @@ function x = CS4300_Process(xa,A,B,U,R)
 %     Fall 2016
 %
 
-x = A * xa + B * U + R;
+x = (A * xa) + (B * U) + sqrt(R) * randn(4,1);
 

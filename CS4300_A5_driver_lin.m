@@ -36,7 +36,7 @@ xa = [x0;y0;vx0;vy0];
 at = xa';
 
 %z actual
-z = CS4300_fall(c,xa,Q);
+z = CS4300_Sensor(C,xa,Q);
 zt = z';
 
 %x trace
@@ -47,20 +47,20 @@ xt = x';
 sigma = R;
 st(1).sigma2 = sigma;
 
-t_vals = [dt:dt:max_time];
+t_vals = [del_t:del_t:max_time];
 num_steps = length(t_vals);
 
 for s = 1:num_steps
-   xa = CS4300_Process(xa,A,B,U,R);
+   xa = CS4300_Process(xa,A,B,u,R);
    at = [at;xa'];
-   z = CS4300_Sensor(c,xa,Q);
-   zt = [zt:z'];
-   [x,sigma] = CS4300_KF(xt(end), st(end), sigma,u,zt,A,R,B,C,Q);
+   z = CS4300_Sensor(C,xa,Q);
+   zt = [zt;z'];
+   [x,sigma] = CS4300_KF(xa, st(end).sigma2,u,z,A,R,B,C,Q);
    xt = [xt;x'];
    st(end+1).sigma2 = sigma;
 end
 
-x_trace = xt;
+x_trace = xt(: , 1:2);
 Sigma2_trace = st;
 z_trace = zt;
 a_trace = at;

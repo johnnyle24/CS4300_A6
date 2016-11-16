@@ -21,13 +21,12 @@ B_t,C_t,Q_t)
 %     Fall 2016
 %
 
-mu_t = A_t * mu_tm1 + B_t * u_t;
+mu_t = (A_t * mu_tm1) + (B_t * u_t);
 Sigma_t = A_t * Sigma_tm1 * A_t' + R_t;
 
-K_t = Sigma_t * C_t' * (C_t * Sigma_t * C_T' + Q_t).^-1;
+K_t = Sigma_t * C_t' * inv((C_t * Sigma_t * C_t' + Q_t));
 mu_t = mu_t + K_t * (z_t - C_t*mu_t);
-n = size(C_T);
-I = eye(n);
+I = eye(4);
 Sigma_t = (I-K_t * C_t) * Sigma_t;
 
 
