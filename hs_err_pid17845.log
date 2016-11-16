@@ -1,0 +1,465 @@
+#
+# There is insufficient memory for the Java Runtime Environment to continue.
+# Cannot create GC thread. Out of system resources.
+# Possible reasons:
+#   The system is out of physical RAM or swap space
+#   In 32 bit mode, the process size limit was hit
+# Possible solutions:
+#   Reduce memory load on the system
+#   Increase physical memory or swap space
+#   Check if swap backing store is full
+#   Use 64 bit Java on a 64 bit OS
+#   Decrease Java heap size (-Xmx/-Xms)
+#   Decrease number of Java threads
+#   Decrease Java thread stack sizes (-Xss)
+#   Set larger code cache with -XX:ReservedCodeCacheSize=
+# This output file may be truncated or incomplete.
+#
+#  Out of Memory Error (gcTaskThread.cpp:46), pid=17845, tid=139942760404800
+#
+# JRE version:  (7.0_60-b19) (build )
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.60-b09 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00000000020fb800):  JavaThread "Unknown thread" [_thread_in_vm, id=17845, stack(0x00007ffedabec000,0x00007ffedacec000)]
+
+Stack: [0x00007ffedabec000,0x00007ffedacec000],  sp=0x00007ffedace50d0,  free space=996k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x99e7ca]  VMError::report_and_die()+0x2ea
+V  [libjvm.so+0x496fbb]  report_vm_out_of_memory(char const*, int, unsigned long, char const*)+0x9b
+V  [libjvm.so+0x55715a]  GCTaskThread::GCTaskThread(GCTaskManager*, unsigned int, unsigned int)+0x11a
+V  [libjvm.so+0x5566d8]  GCTaskManager::initialize()+0x2b8
+V  [libjvm.so+0x83e868]  ParallelScavengeHeap::initialize()+0x6f8
+V  [libjvm.so+0x971bfa]  Universe::initialize_heap()+0xca
+V  [libjvm.so+0x972dc9]  universe_init()+0x79
+V  [libjvm.so+0x5b0785]  init_globals()+0x65
+V  [libjvm.so+0x95a72d]  Threads::create_vm(JavaVMInitArgs*, bool*)+0x1ed
+V  [libjvm.so+0x6387c4]  JNI_CreateJavaVM+0x74
+C  [libjli.so+0x2f8e]  JavaMain+0x9e
+C  [libjli.so+0xd4d3]  ContinueInNewThread0+0x63
+C  [libjli.so+0x258a]  ContinueInNewThread+0x7a
+C  [libjli.so+0x50e0]  JLI_Launch+0x480
+C  [java+0x686]  __libc_start_main@@GLIBC_2.2.5+0x686
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+
+Other Threads:
+
+=>0x00000000020fb800 (exited) JavaThread "Unknown thread" [_thread_in_vm, id=17845, stack(0x00007ffedabec000,0x00007ffedacec000)]
+
+VM state:not at safepoint (not fully initialized)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+GC Heap History (0 events):
+No events
+
+Deoptimization events (0 events):
+No events
+
+Internal exceptions (0 events):
+No events
+
+Events (0 events):
+No events
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 00:30 6079964                            /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/bin/java
+00600000-00601000 rw-p 00000000 00:30 6079964                            /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/bin/java
+020ef000-02131000 rw-p 00000000 00:00 0                                  [heap]
+606000000-607500000 rw-p 00000000 00:00 0 
+607500000-60b200000 rw-p 00000000 00:00 0 
+60b200000-61ff80000 rw-p 00000000 00:00 0 
+61ff80000-759080000 rw-p 00000000 00:00 0 
+759080000-763780000 rw-p 00000000 00:00 0 
+763780000-800000000 rw-p 00000000 00:00 0 
+7f46ef1b4000-7f46ef416000 rw-p 00000000 00:00 0 
+7f46ef416000-7f46ef434000 rw-p 00000000 00:00 0 
+7f46ef434000-7f46ef4db000 rw-p 00000000 00:00 0 
+7f46ef4db000-7f46efea4000 rw-p 00000000 00:00 0 
+7f46efea4000-7f46efeaf000 rw-p 00000000 00:00 0 
+7f46efeaf000-7f46efecd000 rw-p 00000000 00:00 0 
+7f46efecd000-7f46eff74000 rw-p 00000000 00:00 0 
+7f46eff74000-7f46f093c000 rw-p 00000000 00:00 0 
+7f46f093c000-7f46f0990000 rw-p 00000000 00:00 0 
+7f46f0990000-7f46f0e74000 rw-p 00000000 00:00 0 
+7f46f0e74000-7f46f0e75000 rw-p 00000000 00:00 0 
+7f46f0e75000-7f46f10e5000 rwxp 00000000 00:00 0 
+7f46f10e5000-7f46f3e75000 rw-p 00000000 00:00 0 
+7f46f3e75000-7f46f3e8f000 r-xp 00000000 00:30 4353999                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libzip.so
+7f46f3e8f000-7f46f408f000 ---p 0001a000 00:30 4353999                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libzip.so
+7f46f408f000-7f46f4090000 rw-p 0001a000 00:30 4353999                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libzip.so
+7f46f4090000-7f46f409c000 r-xp 00000000 08:02 7355674                    /usr/lib64/libnss_ldap.so.2
+7f46f409c000-7f46f429b000 ---p 0000c000 08:02 7355674                    /usr/lib64/libnss_ldap.so.2
+7f46f429b000-7f46f429c000 r--p 0000b000 08:02 7355674                    /usr/lib64/libnss_ldap.so.2
+7f46f429c000-7f46f429d000 rw-p 0000c000 08:02 7355674                    /usr/lib64/libnss_ldap.so.2
+7f46f429d000-7f46f42a9000 r-xp 00000000 08:02 7340645                    /usr/lib64/libnss_files-2.17.so
+7f46f42a9000-7f46f44a8000 ---p 0000c000 08:02 7340645                    /usr/lib64/libnss_files-2.17.so
+7f46f44a8000-7f46f44a9000 r--p 0000b000 08:02 7340645                    /usr/lib64/libnss_files-2.17.so
+7f46f44a9000-7f46f44aa000 rw-p 0000c000 08:02 7340645                    /usr/lib64/libnss_files-2.17.so
+7f46f44aa000-7f46f44b0000 rw-p 00000000 00:00 0 
+7f46f44b0000-7f46f44d9000 r-xp 00000000 00:30 3626528                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so
+7f46f44d9000-7f46f46d9000 ---p 00029000 00:30 3626528                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so
+7f46f46d9000-7f46f46db000 rw-p 00029000 00:30 3626528                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libjava.so
+7f46f46db000-7f46f46e8000 r-xp 00000000 00:30 4354005                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libverify.so
+7f46f46e8000-7f46f48e7000 ---p 0000d000 00:30 4354005                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libverify.so
+7f46f48e7000-7f46f48e9000 rw-p 0000c000 00:30 4354005                    /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/libverify.so
+7f46f48e9000-7f46f48f0000 r-xp 00000000 08:02 7340657                    /usr/lib64/librt-2.17.so
+7f46f48f0000-7f46f4aef000 ---p 00007000 08:02 7340657                    /usr/lib64/librt-2.17.so
+7f46f4aef000-7f46f4af0000 r--p 00006000 08:02 7340657                    /usr/lib64/librt-2.17.so
+7f46f4af0000-7f46f4af1000 rw-p 00007000 08:02 7340657                    /usr/lib64/librt-2.17.so
+7f46f4af1000-7f46f4bf2000 r-xp 00000000 08:02 7340635                    /usr/lib64/libm-2.17.so
+7f46f4bf2000-7f46f4df1000 ---p 00101000 08:02 7340635                    /usr/lib64/libm-2.17.so
+7f46f4df1000-7f46f4df2000 r--p 00100000 08:02 7340635                    /usr/lib64/libm-2.17.so
+7f46f4df2000-7f46f4df3000 rw-p 00101000 08:02 7340635                    /usr/lib64/libm-2.17.so
+7f46f4df3000-7f46f5963000 r-xp 00000000 00:30 17453082                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/server/libjvm.so
+7f46f5963000-7f46f5b62000 ---p 00b70000 00:30 17453082                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/server/libjvm.so
+7f46f5b62000-7f46f5c26000 rw-p 00b6f000 00:30 17453082                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/server/libjvm.so
+7f46f5c26000-7f46f5c67000 rw-p 00000000 00:00 0 
+7f46f5c67000-7f46f5e1e000 r-xp 00000000 08:02 7340627                    /usr/lib64/libc-2.17.so
+7f46f5e1e000-7f46f601e000 ---p 001b7000 08:02 7340627                    /usr/lib64/libc-2.17.so
+7f46f601e000-7f46f6022000 r--p 001b7000 08:02 7340627                    /usr/lib64/libc-2.17.so
+7f46f6022000-7f46f6024000 rw-p 001bb000 08:02 7340627                    /usr/lib64/libc-2.17.so
+7f46f6024000-7f46f6029000 rw-p 00000000 00:00 0 
+7f46f6029000-7f46f602c000 r-xp 00000000 08:02 7340633                    /usr/lib64/libdl-2.17.so
+7f46f602c000-7f46f622b000 ---p 00003000 08:02 7340633                    /usr/lib64/libdl-2.17.so
+7f46f622b000-7f46f622c000 r--p 00002000 08:02 7340633                    /usr/lib64/libdl-2.17.so
+7f46f622c000-7f46f622d000 rw-p 00003000 08:02 7340633                    /usr/lib64/libdl-2.17.so
+7f46f622d000-7f46f6243000 r-xp 00000000 00:30 17453087                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/jli/libjli.so
+7f46f6243000-7f46f6443000 ---p 00016000 00:30 17453087                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/jli/libjli.so
+7f46f6443000-7f46f6444000 rw-p 00016000 00:30 17453087                   /usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/jli/libjli.so
+7f46f6444000-7f46f645a000 r-xp 00000000 08:02 7340653                    /usr/lib64/libpthread-2.17.so
+7f46f645a000-7f46f665a000 ---p 00016000 08:02 7340653                    /usr/lib64/libpthread-2.17.so
+7f46f665a000-7f46f665b000 r--p 00016000 08:02 7340653                    /usr/lib64/libpthread-2.17.so
+7f46f665b000-7f46f665c000 rw-p 00017000 08:02 7340653                    /usr/lib64/libpthread-2.17.so
+7f46f665c000-7f46f6660000 rw-p 00000000 00:00 0 
+7f46f6660000-7f46f6681000 r-xp 00000000 08:02 7345775                    /usr/lib64/ld-2.17.so
+7f46f668c000-7f46f66a6000 rw-p 00000000 00:00 0 
+7f46f66a6000-7f46f675c000 rw-p 00000000 00:00 0 
+7f46f675c000-7f46f675d000 ---p 00000000 00:00 0 
+7f46f675d000-7f46f6861000 rw-p 00000000 00:00 0 
+7f46f6866000-7f46f6876000 rw-p 00000000 00:00 0 
+7f46f6876000-7f46f687e000 rw-s 00000000 00:23 1750292                    /tmp/hsperfdata_trungl/17845
+7f46f687e000-7f46f687f000 rw-p 00000000 00:00 0 
+7f46f687f000-7f46f6880000 r--p 00000000 00:00 0 
+7f46f6880000-7f46f6881000 rw-p 00000000 00:00 0 
+7f46f6881000-7f46f6882000 r--p 00021000 08:02 7345775                    /usr/lib64/ld-2.17.so
+7f46f6882000-7f46f6883000 rw-p 00022000 08:02 7345775                    /usr/lib64/ld-2.17.so
+7f46f6883000-7f46f6884000 rw-p 00000000 00:00 0 
+7ffedabec000-7ffedabef000 ---p 00000000 00:00 0 
+7ffedabf0000-7ffedacec000 rw-p 00000000 00:00 0                          [stack]
+7ffedadb3000-7ffedadb5000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+java_command: com.mathworks.fatalexit.FatalExitFrame /home/trungl/matlab_crash_dump.16635-1
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+PATH=/usr/lib64/qt-3.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin
+LD_LIBRARY_PATH=/usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/server:/usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64:/usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/../lib/amd64:/usr/local/apps/matlab/matlab16a/sys/os/glnxa64:/usr/local/apps/matlab/matlab16a/bin/glnxa64:/usr/local/apps/matlab/matlab16a/extern/lib/glnxa64:/usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/native_threads:/usr/local/apps/matlab/matlab16a/sys/java/jre/glnxa64/jre/lib/amd64/server
+SHELL=/bin/tcsh
+DISPLAY=:2.0
+HOSTTYPE=x86_64-linux
+OSTYPE=linux
+ARCH=glnxa64
+MACHTYPE=x86_64
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x99f0f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x99f0f0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x81a6d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x81a6d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x81a6d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x81a6d0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x81bed0], sa_mask[0]=0x08081000, sa_flags=0x10000004
+SIGHUP: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGINT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGQUIT: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS Linux release 7.2.1511 (Core) 
+
+uname:Linux 3.10.0-327.36.3.el7.x86_64 #1 SMP Mon Oct 24 16:09:20 UTC 2016 x86_64
+libc:glibc 2.17 NPTL 2.17 
+rlimit: STACK 8192k, CORE 0k, NPROC 500, NOFILE 4096, AS infinity
+load average:0.20 0.18 0.14
+
+/proc/meminfo:
+MemTotal:       32823144 kB
+MemFree:        18681928 kB
+MemAvailable:   27652088 kB
+Buffers:          204216 kB
+Cached:          8996840 kB
+SwapCached:            0 kB
+Active:          5846296 kB
+Inactive:        7378876 kB
+Active(anon):    4032304 kB
+Inactive(anon):   360880 kB
+Active(file):    1813992 kB
+Inactive(file):  7017996 kB
+Unevictable:         256 kB
+Mlocked:             256 kB
+SwapTotal:       5242876 kB
+SwapFree:        5242876 kB
+Dirty:                44 kB
+Writeback:             0 kB
+AnonPages:       4108552 kB
+Mapped:           866300 kB
+Shmem:            369052 kB
+Slab:             470224 kB
+SReclaimable:     391588 kB
+SUnreclaim:        78636 kB
+KernelStack:       19776 kB
+PageTables:        92172 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    21654448 kB
+Committed_AS:   13740100 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:      436132 kB
+VmallocChunk:   34359298428 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:   1361920 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:      346016 kB
+DirectMap2M:    14209024 kB
+DirectMap1G:    18874368 kB
+
+
+CPU:total 8 (4 cores per cpu, 2 threads per core) family 6 model 60 stepping 3, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, avx, avx2, aes, erms, ht, tsc, tscinvbit
+
+/proc/cpuinfo:
+processor	: 0
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3596.906
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 0
+initial apicid	: 0
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 1
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 2
+initial apicid	: 2
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 2
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3600.281
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 4
+initial apicid	: 4
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 3
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3600.000
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 6
+initial apicid	: 6
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 4
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3614.906
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 0
+cpu cores	: 4
+apicid		: 1
+initial apicid	: 1
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 5
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3941.718
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 1
+cpu cores	: 4
+apicid		: 3
+initial apicid	: 3
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 6
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3600.703
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 2
+cpu cores	: 4
+apicid		: 5
+initial apicid	: 5
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+processor	: 7
+vendor_id	: GenuineIntel
+cpu family	: 6
+model		: 60
+model name	: Intel(R) Core(TM) i7-4790 CPU @ 3.60GHz
+stepping	: 3
+microcode	: 0x1c
+cpu MHz		: 3902.765
+cache size	: 8192 KB
+physical id	: 0
+siblings	: 8
+core id		: 3
+cpu cores	: 4
+apicid		: 7
+initial apicid	: 7
+fpu		: yes
+fpu_exception	: yes
+cpuid level	: 13
+wp		: yes
+flags		: fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush dts acpi mmx fxsr sse sse2 ss ht tm pbe syscall nx pdpe1gb rdtscp lm constant_tsc arch_perfmon pebs bts rep_good nopl xtopology nonstop_tsc aperfmperf eagerfpu pni pclmulqdq dtes64 monitor ds_cpl vmx smx est tm2 ssse3 fma cx16 xtpr pdcm pcid sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand lahf_lm abm ida arat epb pln pts dtherm tpr_shadow vnmi flexpriority ept vpid fsgsbase tsc_adjust bmi1 avx2 smep bmi2 erms invpcid xsaveopt
+bogomips	: 7199.42
+clflush size	: 64
+cache_alignment	: 64
+address sizes	: 39 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 32823144k(18681928k free), swap 5242876k(5242876k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.60-b09) for linux-amd64 JRE (1.7.0_60-b19), built on May  7 2014 13:18:30 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Wed Nov 16 14:19:48 2016
+elapsed time: 0 seconds
+

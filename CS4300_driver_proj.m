@@ -63,7 +63,7 @@ xt = x';
 sigma = R;
 st(1).sigma2 = sigma;
 
-t_vals = [0:del_t:t_max];
+t_vals = [del_t:del_t:t_max];
 num_steps = length(t_vals);
 
 % for s = 1:num_steps

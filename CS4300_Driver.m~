@@ -19,17 +19,13 @@ y0 = 0;
 vx0 = 4;
 vy0 = 4;
 theta = pi/8;
-del_t = 0.1;
+del_t = 0.0;
 max_time = 20;
 t_max = 70;
 g = -9.8;
 r = 0.001;
 q = 1;
 obs_freq = 0.35;
-
-R = eye(4,4) * r;
-C = [1,0,0,0;0,1,0,0];
-Q = eye(2,2) * q;
 
 %Linear motion
 %[xt,at,zt,Sigma2_trace] = CS4300_A5_driver_lin(x0,y0,vx0,vy0,max_time,del_t,theta);
@@ -62,7 +58,6 @@ plot(evx,'x');
 plot(evy,'red');
 plot(avx,'o');
 plot(avy,'*');
-error_ellipse(C, Q);
 % % 
 legend('estimated vel x','estimated vel y','actual vel x', 'actual vel y');
 hold off
