@@ -68,7 +68,7 @@ for s = 1:num_steps
    
    z = CS4300_Sensor(C,xa,Q);
    zt = [zt;z'];
-   [x,sigma] = CS4300_KF(xa, st(end).sigma2,u,z,A,R,B,C,Q);
+   [x,sigma] = CS4300_KF(x, st(end).sigma2,u,z,A,R,B,C,Q);
    xt = [xt;x'];
    st(end+1).sigma2 = sigma;
 end
