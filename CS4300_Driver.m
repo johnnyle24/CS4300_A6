@@ -33,10 +33,10 @@ Q = eye(2,2) * q;
 q1 = [40,0;5,40];
 
 %Linear motion
-[xt,at,zt,Sigma2_trace] = CS4300_A5_driver_lin(x0,y0,vx0,vy0,max_time,del_t,theta);
+%[xt,at,zt,Sigma2_trace] = CS4300_A5_driver_lin(x0,y0,vx0,vy0,max_time,del_t,theta);
 
 %Projectile motion
-%[xt,at,zt,St] = CS4300_driver_proj(del_t,t_max,obs_freq,g,r,q);
+[xt,at,zt,St] = CS4300_driver_proj(del_t,t_max,obs_freq,g,r,q);
 
  hold on
  axval = at(:,1);
@@ -52,7 +52,16 @@ q1 = [40,0;5,40];
  xlabel('X');
  ylabel('Y');
  
- error_ellipse(C,Q);
+ centers = [xt(1, 1), xt(1, 2); xt(80, 1), xt(80,2); xt(160, 1), xt(160, 2);xt(240, 1), xt(240, 2); xt(320, 1), xt(320, 2); xt(400,1), xt(400,2)];
+covar_array = [];
+    
+covar = eye(2) * q;
+
+for i = 1:6
+    error_ellipse(covar, centers(i, :), .67, 1);
+end
+    
+    
 
 legend('estimate','observed','actual');
 

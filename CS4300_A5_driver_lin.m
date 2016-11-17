@@ -66,11 +66,19 @@ for s = 1:num_steps
      
    at = [at;xa'];
    
+   
    z = CS4300_Sensor(C,xa,Q);
    zt = [zt;z'];
    [x,sigma] = CS4300_KF(x, st(end).sigma2,u,z,A,R,B,C,Q);
    xt = [xt;x'];
    st(end+1).sigma2 = sigma;
+   
+   disp('xa')
+   xa'
+   disp('x')
+   x'
+   disp('z')
+   z'
 end
 
 x_trace = xt(: , 1:2);
